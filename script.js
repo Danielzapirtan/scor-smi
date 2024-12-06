@@ -1,3 +1,4 @@
+// Deploy on Vercel
 function main() {
   const domainNames = [
     "I. Separare și Respingere",
