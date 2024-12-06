@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <title>Chestionar YSQ-L3</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <div id="antet" style="font-weight: bold; text-align: center; font-size: 1.67rem;">Rezultate Chestionar YSQ-L3
+    </div>
+  </header>
+  <main>
+    <div id="pageMain" class="page show">
+      <div class="spacing"></div>
+      <div class="spacing"></div>
+      <div id="fullname" style="font-size: 1em; margin: 0;">
+      </div>
+      <div class="spacing"></div>
+      <span id="clinician" class="hidden">
+        <input type="file" id="csvFileInput" accept=".csv">
+        <button id="processCSV">Procesează CSV</button>
+      </span>
+      <div id="text-measure" class="tm"></div>
+      <ul style="margin: 0; padding: 0;" id="schemaScores"></ul>
+    </div>
+    <div id="pageDetails" class="page hidden">
+      <textarea id="editDetails" class="editing"></textarea>
+    </div>
+  </main>
+  <footer>
+    <script src="script.js"></script>
+  </footer>
+</body>
+
+</html>
