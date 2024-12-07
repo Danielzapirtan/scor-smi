@@ -1,4 +1,11 @@
 function main() {
+  const domainNames = [
+    "I. Separare și Respingere",
+    "II. Autonomie și Performanță deficitare",
+    "III. Limite deficitare",
+    "IV. Dependență de alții sau Orientare către ceilalți",
+    "V. Hipervigilență și Inhibiție"
+  ];
 
   function hasQueryParam(paramName) {
     // Get the current URL's search parameters
@@ -9,6 +16,19 @@ function main() {
   }
 
   const resetAll = false;
+
+  const domains = [
+    [1, 2, 3, 4, 5],
+    [6, 7, 8, 9],
+    [10, 11],
+    [12, 13, 14],
+    [15, 16, 17, 18]
+  ];
+
+  let domainDetails;
+  const dditem = JSON.parse(localStorage.getItem("dditem"));
+  if (dditem && !resetAll) domainDetails = dditem;
+  else domainDetails = ["", "", "", "", ""];
 
   const questions = [
     "1. Mă îngrijorez că oamenii pe care îi iubesc vor muri curând, chiar dacă nu există, din punct de vedere medical, nici un motiv care să-mi justifice îngrijorarea. ",
@@ -566,13 +586,14 @@ function main() {
     list.innerHTML = `
 <div class="spacing"></div>
 <span class="aldine">Instrucțiuni pentru interpretarea rezultatelor:</span>
+<br>Butonul "Titlul domeniului cognitiv": Apăsați pentru a obține detalii despre semnificația domeniului cognitiv respectiv.
 <br>Butonul "Titlul schemei cognitive": Apăsați pentru a accesa o descriere rezumativă a schemei cognitive.
 <br>Butonul "Nr:": Apăsați pentru a vizualiza lista itemilor din chestionar asociați fiecărei scheme cognitive, împreună cu calificativele acestora.
 <br>Butonul "Barele de scor": Apăsați pentru a consulta semnificația scorului obținut pentru schema curentă.
 <div class="spacing"></div>
 <div class="spacing"></div>
 <div class="header-record">
-    <span class="blk aldine th1">Schemele cognitive</span>
+    <span class="blk aldine th1">Schemele cognitive clasate pe domenii</span>
     <span class="gap"></span>
     <span class="blk aldine th2">Itemi</span>
     <span class="gap2"></span>
@@ -585,7 +606,6 @@ function main() {
       const ixmed = Math.floor(schemas[iy].length / 2);
       for (let ix = 0; ix < schemas[iy].length; ix++) {
         const index = schemas[iy][ix] - 1;
-        if (index >= 124) continue;
         const response = bakResponses[index];
 
         // Only display the selected question and answer if `iyz` matches `izz`
@@ -604,6 +624,20 @@ function main() {
       }
       const li = document.createElement("li");
       const thresholdWidth = schemas[iy].length * 3.5;
+      let domain = ``;
+      let iy1;
+      for (let dx = 0; dx < domains.length; dx++) {
+        if (iy === domains[dx][0] - 1) {
+          domain += `${domainNames[dx]}`;
+          iy1 = dx + 1;
+        }
+      }
+      li.innerHTML = ``;
+      try {
+        if (domains[iy1 - 1][0] - 1 === iy) {
+          li.innerHTML += `<div class="domain domain${iy1} clickable">${domain}</div>`;
+        }
+      } catch {}
       li.innerHTML += `<div class="container">
   <div class="buttons">
     <button class="li-click clickable">${schemaNames[iy]}</button>
@@ -642,6 +676,14 @@ function main() {
     loadSavedColors();
 
     // Add click event listeners to each question number
+    const domainClasses = [
+      "domain1",
+      "domain2",
+      "domain3",
+      "domain4",
+      "domain5"
+    ];
+
     // Select all elements with 'domain' class
     const schemaElements = document.querySelectorAll(".li-click");
     const editDetails = document.getElementById("editDetails");
@@ -673,6 +715,37 @@ function main() {
         // Remove editable attribute
       });
     });
+    // Select all elements with 'domain' class
+    const domainElements = document.querySelectorAll(".domain");
+    domainElements.forEach((element, index) => {
+      // Add click event listener to each domain div
+      element.addEventListener("click", function () {
+        pageDetails.classList.remove("hidden");
+        pageDetails.classList.add("show");
+        pageMain.classList.add("hidden");
+        pageMain.classList.remove("show");
+        editDetails.value = domainDetails[index];
+        editDetails.dataset.domindex = index;
+      });
+
+      editDetails.addEventListener("blur", function () {
+        const index = this.dataset.domindex;
+        domainDetails[index] = this.value;
+        localStorage.setItem("dditem", JSON.stringify(domainDetails));
+        pageDetails.classList.add("hidden");
+        pageDetails.classList.remove("show");
+        pageMain.classList.remove("hidden");
+        pageMain.classList.add("show");
+        // Remove editable attribute
+      });
+    });
+    /*domainClasses.forEach((domainItem, index) => {
+      const selector = "." + domainItem; // Concatenate the dot and the domainItem
+      const doms = Array.from(document.querySelectorAll(selector));
+      doms[0].addEventListener("click", function (event) {
+        displayMoreInfo(index);
+      });
+    });*/
     const qs = Array.from(document.querySelectorAll("li .schema-click"));
     qs.forEach((q, index) => {
       q.addEventListener("click", function (event) {
