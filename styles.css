@@ -25,6 +25,55 @@ body {
   margin-right: var(--margin);
 }
 
+.domain {
+  width: var(--schema1);
+  height: 6mm;
+  line-height: 6mm;
+  border-radius: var(--radius);
+  font-size: 10.5pt;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.domain1,
+.domain2,
+.domain3,
+.domain4,
+.domain5 {
+  padding: 0 4mm;
+  margin-top: var(--mtd);
+  text-align: left;
+}
+
+.editing {
+  border: 2px solid blue;
+  width: var(--width);
+  background-color: #f0f0f0;
+  resize: vertical; /* Allow vertical resizing only */
+  min-height: 50px; /* Set a minimum height */
+  max-height: 200px; /* Set a maximum height (optional) */
+}
+
+.domain1 {
+  background-color: #bfbfbf;
+}
+
+.domain2 {
+  background-color: #8dd873;
+}
+
+.domain3 {
+  background-color: #d86dcb;
+}
+
+.domain4 {
+  background-color: #f1a983;
+}
+
+.domain5 {
+  background-color: #4c94d8;
+}
+
 .aldine {
   font-weight: bold;
 }
