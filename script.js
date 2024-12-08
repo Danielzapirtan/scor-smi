@@ -177,23 +177,24 @@ function main() {
     "13. Părinte exigent",
     "14. Adultul sănătos"
   ];
+  function distributeSchemas() {
+    // Initialize 14 empty subarrays
+    const schemas = Array.from({ length: 14 }, () => []);
 
-  const schemas = [
-    [1, 19, 37, 55, 73, 91, 109],
-    [2, 20, 38, 56, 74, 92, 110],
-    [3, 21, 39, 57, 75, 93, 111],
-    [4, 22, 40, 58, 76, 94, 112],
-    [5, 23, 41, 59, 77, 95, 113],
-    [6, 24, 42, 60, 78, 96, 114],
-    [7, 25, 43, 61, 69, 97, 115],
-    [8, 26, 44, 62, 80, 98, 116],
-    [9, 27, 45, 63, 81, 99, 117],
-    [10, 28, 46, 64, 85, 100, 118],
-    [11, 29, 47, 65, 86, 101, 119],
-    [12, 30, 48, 66, 82, 102, 120],
-    [13, 31, 49, 67, 83, 103, 121],
-    [14, 32, 50, 68, 84, 104, 122]
-  ];
+    // Sort numbers from 1 to 124
+    const numbers = Array.from({ length: 124 }, (_, i) => i + 1);
+
+    // Distribute numbers to minimize variation between subarrays
+    numbers.forEach((num, index) => {
+      // Use modulo to cycle through domains
+      const schemaIndex = index % 14;
+      schemas[schemaIndex].push(num);
+    });
+
+    return schemas;
+  }
+
+  const schemas = distributeSchemas();
 
   let schemaDetails;
   const schitem = JSON.parse(localStorage.getItem("schitem"));
@@ -412,7 +413,7 @@ function main() {
     list.innerHTML = `
 <div class="spacing"></div>
 <span class="aldine">Instrucțiuni pentru interpretarea rezultatelor:</span>
-<br>Butonul "Titlul categoriei cognitiv": Apăsați pentru a obține detalii despre semnificația categoriei cognitive respective.
+<br>Butonul "Titlul categoriei cognitive": Apăsați pentru a obține detalii despre semnificația categoriei cognitive respective.
 <br>Butonul "Titlul modului cognitiv": Apăsați pentru a accesa o descriere rezumativă a modului cognitiv.
 <br>Butonul "Nr:": Apăsați pentru a vizualiza lista itemilor din chestionar asociați fiecărui mod cognitiv, împreună cu calificativele acestora.
 <br>Butonul "Barele de scor": Apăsați pentru a consulta semnificația scorului obținut pentru schema curentă.
