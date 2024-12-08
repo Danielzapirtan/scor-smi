@@ -177,6 +177,7 @@ function main() {
     "13. Părinte exigent",
     "14. Adultul sănătos"
   ];
+  
   function distributeSchemas() {
     // Initialize 14 empty subarrays
     const schemas = Array.from({ length: 14 }, () => []);
@@ -217,6 +218,7 @@ function main() {
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
   }
+  
   function downloadData() {
     // Example usage:
     const dataToDownload = {
@@ -300,7 +302,7 @@ function main() {
     antet.innerHTML = `<span class="aldine">Prenume: </span>${firstname}
     <span class="aldine">Nume: </span>${lastname}
     `;
-    myResponses = myResponses.slice(2, 124);
+    myResponses = myResponses.slice(2);
     bakResponses = myResponses;
     const questionsContainer = document.getElementById("questions");
     questions.forEach((question, index) => {
@@ -383,7 +385,6 @@ function main() {
     let width = 0;
     for (let ix = 0; ix < schemas[iy].length; ix++) {
       const index = schemas[iy][ix] - 1;
-      if (index >= 124) continue;
       const question = questions[index];
       const quenr = question.match("^[0-9]+[ ]*")[0];
       const quest00 = question.slice(quenr.length);
