@@ -1,10 +1,8 @@
 function main() {
   const domainNames = [
-    "I. Separare și Respingere",
-    "II. Autonomie și Performanță deficitare",
-    "III. Limite deficitare",
-    "IV. Dependență de alții sau Orientare către ceilalți",
-    "V. Hipervigilență și Inhibiție"
+    "I. Moduri de copil",
+    "II. Moduri de coping/adaptare",
+    "III. Moduri de adult"
   ];
 
   function hasQueryParam(paramName) {
@@ -18,17 +16,15 @@ function main() {
   const resetAll = false;
 
   const domains = [
-    [1, 2, 3, 4, 5],
-    [6, 7, 8, 9],
-    [10, 11],
-    [12, 13, 14],
-    [15, 16, 17, 18]
+    [1, 2, 3, 4, 5, 6],
+    [7, 8, 9, 10, 11],
+    [12, 13, 14]
   ];
 
   let domainDetails;
   const dditem = JSON.parse(localStorage.getItem("dditem"));
   if (dditem && !resetAll) domainDetails = dditem;
-  else domainDetails = ["", "", "", "", ""];
+  else domainDetails = ["", "", ""];
 
   const questions = [
     "1. Mă îngrijorez că oamenii pe care îi iubesc vor muri curând, chiar dacă nu există, din punct de vedere medical, nici un motiv care să-mi justifice îngrijorarea. ",
@@ -154,115 +150,7 @@ function main() {
     "121. La serviciu, eu sunt cel care de cela mai multe ori se oferă voluntar să lucreze în plus. ",
     "122. Nu ştiu niciodată ce să spun sau cum să mă adresez în societate. ",
     "123. Mă simt mai bine dacă îmi asum că lucrurile NU vor merge bine pentru mine, ca să nu mă simt dezamăgit atunci când sunt probleme. ",
-    "124. Îmi vine greu să fiu prietenos şi spontan. ",
-    "125. Trebuie să-mi îndeplinesc corect toate responsabilităţile ce-mi revin. ",
-    "126. Ma gândesc adesea la greșelile pe care le-am făcut şi mă simt supărat pe mine însumi. ",
-    "127. Când simt că cineva la care ţin se îndepărtează de mine, devin disperat. ",
-    "128. Sunt destul de suspicios în ceea ce priveşte scopurile celorlalţi. ",
-    "129. Cel mai adesea nu am avut pe cineva care să mă asculte şi să mă înţeleagă cu adevărat sau care să fie în acord cu adevăratele mele nevoi şi sentimente. ",
-    "130. Familia mea a fost întotdeauna diferită de familiile din anturajul nostru. ",
-    "131. Dacă alţii ar afla de defectele mele fundamentale, n-aş putea să dau faţă cu ei. ",
-    "132. Sunt neîndemânatic/ă în cele mai multe domenii ale vieţii. ",
-    "133. Mă tem că sufăr de o boală serioasă, chiar dacă nici un medic nu mi-a pus un diagnostic îngrijorător. ",
-    "134. Sunt atât de legat de partenerul meu sau de părinţi încât nu ştiu cu adevărat cine sunt sau ce vreau. ",
-    "135. Deseori mă simt jenat (stingherit) în preajma altor oameni pentru că nu mă pot compara cu ei în ceea ce priveşte realizările. ",
-    "136. Simt adesea că sunt atât de implicat/ă în priorităţile mele încât nu am timp pentru prieteni sau familie. ",
-    "137. Mă plictisesc foarte uşor. ",
-    "138. Mi-e foarte greu să cer ca drepturile să-mi fie respectate şi să se ţină seama de sentimentele mele. ",
-    "139. Oricât aş fi de ocupat/ă, întotdeauna pot să găsesc timp pentru ceilalţi. ",
-    "140. Oamenii nu vor să mă includă în grupurile lor. ",
-    "141. Ma concentrez mai mult pe aspectele negative ale vietii si ale evenimentelor decat pe cele pozitive. ",
-    "142. Mă controlez atât de mult încât oamenii cred despre mine că sunt lipsit/ă de emoţii. ",
-    "143. Simt că se exercită o presiune constantă asupra mea să-mi îndeplinesc sarcinile şi să duc lucrurile la bun sfârşit. ",
-    "144. Când oamenii fac ceva rău, am probleme în a pune în practică expresia Iartă si uită. ",
-    "145. Uneori sunt atât de îngrijorat/ă că oamenii mă vor părăsi încât, ca să nu fiu părăsit/ă, îi îndepărtez. ",
-    "146. Ceilalţi nu sunt cinstiţi decât rar; de obicei nu sunt ceea ce par. ",
-    "147. Rareori a existat o persoană puternică să-mi dea sfaturi sănătoase sau îndrumări, atunci când nu eram sigur/ă de ceea ce trebuie să fac. ",
-    "148. Uneori sunt ca şi cum aş fi cu totul străin/ă de cei din jurul meu. ",
-    "149. Când oamenii mă plac, simt că îi duc de nas (cred că o să le înşel aşteptările). ",
-    "150. Dacă mă iau după propria judecată, în situaţiile de zi cu zi, voi alege hotărârea greşită. ",
-    "151. Sunt o persoană temătoare. ",
-    "152. Am probleme în a-mi separa punctul de vedere sau opiniile de cele ale părinţilor sau ale partenerului meu. ",
-    "153. Deseori îmi compar realizările cu alţii şi simt că ei sunt mult mai plini de succes. ",
-    "154. Oamenii îmi spun adesea că sunt tipicar (în legătură cu modurile în care fac lucrurile). ",
-    "155. Când sarcinile devin dificile, de obicei nu pot persevera şi nu le pot duce la bun sfârşit. ",
-    "156. Nu prea ripostez oamenilor şi nu-mi exteriorizez furia. ",
-    "157. Mă ocup de mine foarte puţin pentru că nevoile mele sunt minimale. ",
-    "158. Sunt foarte atent/ă la tot ceea ce fac atunci când sunt în preajma altor oameni. ",
-    "159. Tind să fiu pesimist. ",
-    "160. Oamenii consideră că sunt foarte încordat şi tensionat emoţional. ",
-    "161. Relaţiile mele cu ceilalţi suferă deoarece mă forţez şi mă controlez prea mult. ",
-    "162. Țin ranchiună, chiar și după ce cineva și-a cerut scuze. ",
-    "163. Mă supăr atunci când cineva mă părăseşte, chiar şi pentru o perioadă scurtă de timp. ",
-    "164. De obicei vreau să aflu scopurile ascunse pe care le urmăresc oamenii. ",
-    "165. Dacă aş dispărea mâine, nimeni nu ar remarca absenţa mea. ",
-    "166. Adesea mă simt atras/ă de persoane care sunt foarte critice şi mă resping. ",
-    "167. Mă îngrijorez foarte tare de lucrurile rele care se întâmplă în lume: crimă, poluare etc. ",
-    "168. Simt adesea că nu am intimitate când vine vorba de părinţii sau de partenerul/a meu/mea. ",
-    "169. Îmi lipseşte intuiţia şi simţul comun. ",
-    "170. Mă enervez foarte tare când oamenii nu fac ceea ce le cer. ",
-    "171. Nu mă pot concentra prea mult la nimic. ",
-    "172. Sunt în stare să fac mai multe sacrificii decât majoritatea oamenilor pentru a evita o confruntare sau un conflict. ",
-    "173. Sunt fericit dacă cei din jurul meu sunt fericiţi. ",
-    "174. Dacă fac observatii la o întâlnire sau sunt prezentat la o adunare, aştept cu nerăbdare recunoaștere si admiratie. ",
-    "175. Oamenii apropiați mă consideră un îngrijorat mereu. ",
-    "176. Sănătatea mea suferă pentru că mă supun unei presiuni atât de mari ca să fac ceea ce fac. ",
-    "177. Ma supar cand cred ca cineva a fost „lăsat să scape” prea ușor. ",
-    "178. Nu pot conta pe sprijinul permanent al apropiaţiilor mei. ",
-    "179. Dacă mă gândesc că cineva urmăreşte să mă rănească, încerc să-l rănesc eu mai întâi. ",
-    "180. Am secrete de care nu vreau să afle cei apropiaţi. ",
-    "181. Cred că ceilalţi nu trebuie să se încreadă în judecata mea, nici chiar în situaţiile simple, cotidiene. ",
-    "182. Simt adesea că aş putea să înnebunesc.",
-    "183. Simt că părinţii mei ar fi foarte răniţi dacă aş trăi singur departe de ei. ",
-    "184. Nu pot tolera ca alţii să-mi spună ce să fac. ",
-    "185. Nu mă pot forţa să fac lucruri care nu-mi plac, chiar când ştiu că este spre binele meu. ",
-    "186. Sunt atât de ocupat să fac ceva pentru oamenii la care ţin, încât am puţin timp pentru mine. ",
-    "187. Multe laude și complimente mă fac să mă simt o persoană care merită. ",
-    "188. Dacă oamenii devin prea entuziasmați de ceva, mă simt inconfortabil și am tendința să-i avertizez despre ce ar putea merge prost. ",
-    "189. Îmi sacrific adesea fericirea şi plăcerea ca să fiu la înălţimea standardelor pe care mi le stabilesc. ",
-    "190. Mă enervez cand oamenii isi găsesc scuze sau dau vina pe altii în locul lor. ",
-    "191. Nu-mi fac prieteni deoarece nu pot fi sigur de loialitatea lor. ",
-    "192. Trebuie ca mai întâi oamenii să-mi dovedească cine sunt cu adevărat, înainte să pot avea încredere în ei. ",
-    "193. Este vina mea că părinţii mei n-au putut să mă iubească îndeajuns. ",
-    "194. Nu am încredere în abilităţile mele de a rezolva problemele zilnice care apar. ",
-    "195. Simt adesea că voi avea o criză de anxietate (că o să-mi pierd controlul din cauza fricii). ",
-    "196. Îmi pierd cumpătul la cea mai mică ofensă. ",
-    "197. Am fost întotdeauna cel (cea) care asculta problemele tuturor. ",
-    "198. Când fac o greşeală merit să fiu criticat/ă dur. ",
-    "199. Nu contează de ce greșesc; când fac ceva greșit, ar trebui să plătesc. ",
-    "200. Mi se pare că oamenii care îmi sunt apropiaţi se perindă mereu prin viaţa mea şi nu rămân alături de mine decât pentru foarte puţin timp. ",
-    "201. Pun la cale „teste” pentru ceilalţi ca să văd dacă spun adevărul sau dacă sunt bine intenţionaţi. ",
-    "202. Nu-i las pe ceilalţi să mă cunoască cu adevărat. ",
-    "203. Simt că am nevoie de cineva pe care să mă bizui ca să-mi dea sfaturi în problemele practice. ",
-    "204. Mă îngrijorez adesea că aş putea face infarct, chiar dacă sunt puţine motive, din punct de vedere medical, să fiu îngrijorat. ",
-    "205. Am fost de puţine ori capabil/ă să mă ţin de hotărârile mele. ",
-    "206. Mă simt mai bine când fac un cadou decât atunci când primesc unul. ",
-    "207. Nu mă dezic repede şi nu mă scuz uşor pentru greşelile mele. ",
-    "208. Mă critic aspru pentru greșelile pe care le fac sau pentru lucrurile pe care le dau peste cap. ",
-    "209. Mă îngrijorez că oamenii pe care îi iubesc vor prefera pe altcineva şi mă vor părăsi. ",
-    "210. Subscriu la credinţa: Controlează sau vei fi controlat. ",
-    "211. Una din cele mai mari frici ale mele este că defectele îmi vor fi descoperite. ",
-    "212. Mă simt mai degrabă ca un copil decât ca un adult când vine vorba de a face faţă responsabilităţilor de zi cu zi. ",
-    "213. Simt că lumea este un loc primejdios. ",
-    "214. Nu pot aproape niciodată să mă abţin de la a arăta oamenilor ce simt cu adevărat, indiferent cât m-ar costa acest lucru. ",
-    "215. Alţi oameni cred despre mine că nu fac destul pentru mine şi fac prea mult pentru ceilalţi. ",
-    "216. Sunt o persoană foarte competitivă. ",
-    "217. Sunt o persoană rea care merită să fie pedepsită. ",
-    "218. Oamenii apropiați mie au fost foarte imprevizibili și certăreți; la un moment dat erau disponibili și drăguți cu mine; imediat după aceea erau nervoși, supărați, absorbiți de ei înșiși. ",
-    "219. Mă enervez gândindu-mă la modul în care am fost maltratat de ceilalţi în cursul vieţii mele. ",
-    "220. Nu pot să înţeleg cum m-ar putea iubi cineva. ",
-    "221. Responsabilitatea vieţii de zi cu zi mi se pare copleşitoare. ",
-    "222. Fac adesea lucruri în mod impulsiv şi le regret mai târziu. ",
-    "223. Oricât de mult aş oferi celorlalţi, nu este niciodată destul. ",
-    "224. Pun un mare preţ pe bani sau pe poziţia socială şi profesională. ",
-    "225. Am nevoie de ceilalţi atât de mult, încât îmi fac griji că-i voi pierde. ",
-    "226. În cursul vieţii mele cei apropiaţi mie au profitat de mine sau m-au folosit pentru propriile lor scopuri. ",
-    "227. Dacă fac doar ceea ce vreau, nu mă simt bine deloc. ",
-    "228. Trebuie să fiu mereu „Numărul unu” în domeniul în care lucrez sau învăţ. ",
-    "229. Mă simt lipsit/ă de apărare dacă nu există cineva care să-mi ofere sprijin, iar atunci când cineva mă ajută mă tem să nu-l pierd. ",
-    "230. Oamenii importanţi din viaţa mea au abuzat de mine fizic sau emoţional. ",
-    "231. Îmi este foarte greu să le cer altora să aibă grijă de nevoile mele. ",
-    "232. Nu pot fi eu însumi şi nici nu pot exprima ceea ce simt cu adevărat deoarece apropiaţii mei mă vor părăsi. "
+    "124. Îmi vine greu să fiu prietenos şi spontan. "
   ];
   // Dropdown options
   const options = [
@@ -274,100 +162,37 @@ function main() {
     "6. Mă descrie perfect"
   ];
   const schemaNames = [
-    "1. Abandon/Instabilitate AB",
-    "2. Neîncredere/Abuz MA",
-    "3. Deprivare Emoțională ED",
-    "4. Izolare socială/Înstrăinare SI",
-    "5. Deficienţă/Ruşine DS",
-    "6. Dependenţă/Incompetenţă DI",
-    "7. Vulnerabilitate în fața pericolelor și a îmbolnăvirilor VH",
-    "8. Protecționism/Personalitate Atrofiată/Sine infantil EM",
-    "9. Eșec FA",
-    "10. Îndreptățire/Dominanță/Grandomanie ET",
-    "11. Lipsa de Autocontrol și Autodisciplină IS",
-    "12. Subjugare SB",
-    "13. Sacrificiu de Sine SS",
-    "14. Indezirabilitate Socială/Nevoie de Aprobare SU/AS",
-    "15. Negativism/Pesimism NP",
-    "16. Inhibiție Emoțională/Autocontrol Exagerat EI",
-    "17. Standarde Nerealiste/Exigență/Hipercriticism US",
-    "18. Pedepsire/Spirit justițiar PU"
+    "1. Copil vulnerabil",
+    "2. Copil supărat",
+    "3. Copil furios",
+    "4. Copil impulsiv",
+    "5. Copil indisciplinat",
+    "6. Copil fericit",
+    "7. Capitulat/Conformist",
+    "8. Protector detașat",
+    "9. Autoliniștitor detașat",
+    "10. Supracompensat/Auto-glorificator",
+    "11. Agresor și Intimidant",
+    "12. Părinte pedepsitor",
+    "13. Părinte exigent",
+    "14. Adultul sănătos"
   ];
 
   const schemas = [
-    [
-      1,
-      19,
-      37,
-      55,
-      73,
-      91,
-      109,
-      127,
-      145,
-      163,
-      178,
-      191,
-      200,
-      209,
-      218,
-      225,
-      229,
-      232
-    ],
-    [
-      2,
-      20,
-      38,
-      56,
-      74,
-      92,
-      110,
-      128,
-      146,
-      164,
-      179,
-      192,
-      201,
-      210,
-      219,
-      226,
-      230
-    ],
-    [3, 21, 39, 57, 75, 93, 111, 129, 147],
-    [4, 22, 40, 58, 76, 94, 112, 130, 148, 165],
-    [5, 23, 41, 59, 77, 95, 113, 131, 149, 166, 180, 193, 202, 211, 220],
-    [6, 24, 42, 60, 78, 96, 114, 132, 150, 169, 181, 194, 203, 212, 221],
-    [7, 25, 43, 61, 69, 97, 115, 133, 151, 167, 182, 195, 204, 213],
-    [8, 26, 44, 62, 80, 98, 116, 134, 152, 168, 183],
-    [9, 27, 45, 63, 81, 99, 117, 135, 153],
-    [10, 28, 46, 64, 85, 100, 118, 136, 154, 170, 184],
-    [11, 29, 47, 65, 86, 101, 119, 137, 155, 171, 185, 196, 205, 214, 222],
-    [12, 30, 48, 66, 82, 102, 120, 138, 156, 172],
-    [
-      13,
-      31,
-      49,
-      67,
-      83,
-      103,
-      121,
-      139,
-      157,
-      173,
-      186,
-      197,
-      206,
-      215,
-      223,
-      227,
-      231
-    ],
-    [14, 32, 50, 68, 84, 104, 122, 140, 158, 174, 187],
-    [15, 33, 51, 69, 87, 105, 123, 141, 159, 175, 188],
-    [16, 34, 52, 70, 88, 106, 124, 142, 160],
-    [17, 35, 53, 71, 89, 107, 125, 143, 161, 176, 189, 198, 207, 216, 224, 228],
-    [18, 36, 54, 72, 90, 108, 126, 144, 162, 177, 190, 199, 208, 217]
+    [1, 19, 37, 55, 73, 91, 109],
+    [2, 20, 38, 56, 74, 92, 110],
+    [3, 21, 39, 57, 75, 93, 111],
+    [4, 22, 40, 58, 76, 94, 112],
+    [5, 23, 41, 59, 77, 95, 113],
+    [6, 24, 42, 60, 78, 96, 114],
+    [7, 25, 43, 61, 69, 97, 115],
+    [8, 26, 44, 62, 80, 98, 116],
+    [9, 27, 45, 63, 81, 99, 117],
+    [10, 28, 46, 64, 85, 100, 118],
+    [11, 29, 47, 65, 86, 101, 119],
+    [12, 30, 48, 66, 82, 102, 120],
+    [13, 31, 49, 67, 83, 103, 121],
+    [14, 32, 50, 68, 84, 104, 122]
   ];
 
   let schemaDetails;
@@ -474,7 +299,7 @@ function main() {
     antet.innerHTML = `<span class="aldine">Prenume: </span>${firstname}
     <span class="aldine">Nume: </span>${lastname}
     `;
-    myResponses = myResponses.slice(2);
+    myResponses = myResponses.slice(2, 124);
     bakResponses = myResponses;
     const questionsContainer = document.getElementById("questions");
     questions.forEach((question, index) => {
@@ -557,6 +382,7 @@ function main() {
     let width = 0;
     for (let ix = 0; ix < schemas[iy].length; ix++) {
       const index = schemas[iy][ix] - 1;
+      if (index >= 124) continue;
       const question = questions[index];
       const quenr = question.match("^[0-9]+[ ]*")[0];
       const quest00 = question.slice(quenr.length);
@@ -586,14 +412,14 @@ function main() {
     list.innerHTML = `
 <div class="spacing"></div>
 <span class="aldine">Instrucțiuni pentru interpretarea rezultatelor:</span>
-<br>Butonul "Titlul domeniului cognitiv": Apăsați pentru a obține detalii despre semnificația domeniului cognitiv respectiv.
-<br>Butonul "Titlul schemei cognitive": Apăsați pentru a accesa o descriere rezumativă a schemei cognitive.
-<br>Butonul "Nr:": Apăsați pentru a vizualiza lista itemilor din chestionar asociați fiecărei scheme cognitive, împreună cu calificativele acestora.
+<br>Butonul "Titlul categoriei cognitiv": Apăsați pentru a obține detalii despre semnificația categoriei cognitive respective.
+<br>Butonul "Titlul modului cognitiv": Apăsați pentru a accesa o descriere rezumativă a modului cognitiv.
+<br>Butonul "Nr:": Apăsați pentru a vizualiza lista itemilor din chestionar asociați fiecărui mod cognitiv, împreună cu calificativele acestora.
 <br>Butonul "Barele de scor": Apăsați pentru a consulta semnificația scorului obținut pentru schema curentă.
 <div class="spacing"></div>
 <div class="spacing"></div>
 <div class="header-record">
-    <span class="blk aldine th1">Schemele cognitive clasate pe domenii</span>
+    <span class="blk aldine th1">Modurile cognitive clasate pe categorii</span>
     <span class="gap"></span>
     <span class="blk aldine th2">Itemi</span>
     <span class="gap2"></span>
@@ -676,21 +502,15 @@ function main() {
     loadSavedColors();
 
     // Add click event listeners to each question number
-    const domainClasses = [
-      "domain1",
-      "domain2",
-      "domain3",
-      "domain4",
-      "domain5"
-    ];
+    const domainClasses = ["domain1", "domain2", "domain3"];
 
     // Select all elements with 'domain' class
     const schemaElements = document.querySelectorAll(".li-click");
     const editDetails = document.getElementById("editDetails");
-        editDetails.addEventListener("input", () => {
-          editDetails.style.height = "auto";
-          editDetails.style.height = editDetails.scrollHeight + "px";
-        });
+    editDetails.addEventListener("input", () => {
+      editDetails.style.height = "auto";
+      editDetails.style.height = editDetails.scrollHeight + "px";
+    });
     const pageMain = document.getElementById("pageMain");
     const pageDetails = document.getElementById("pageDetails");
     schemaElements.forEach((element, index) => {
