@@ -37,9 +37,7 @@ body {
 
 .domain1,
 .domain2,
-.domain3,
-.domain4,
-.domain5 {
+.domain3 {
   padding: 0 4mm;
   margin-top: var(--mtd);
   text-align: left;
@@ -64,14 +62,6 @@ body {
 
 .domain3 {
   background-color: #d86dcb;
-}
-
-.domain4 {
-  background-color: #f1a983;
-}
-
-.domain5 {
-  background-color: #4c94d8;
 }
 
 .aldine {
