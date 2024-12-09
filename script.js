@@ -352,7 +352,7 @@ function main() {
   document.getElementById("processCSV").addEventListener("click", () => {
     let data = localStorage.getItem(storageKey);
 
-    if (data) {
+    if (data && false) {
       data = JSON.parse(data);
       processResponses(data);
     } else {
