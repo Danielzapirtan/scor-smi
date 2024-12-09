@@ -336,7 +336,7 @@ function main() {
     displayScores(firstname, lastname, scores);
   }
 
-  //localStorage.removeItem("csvData");
+  localStorage.removeItem("csvData");
   const storageKey = "csvData";
   let data = localStorage.getItem(storageKey);
   if (data && !resetAll) {
@@ -352,7 +352,7 @@ function main() {
   document.getElementById("processCSV").addEventListener("click", () => {
     let data = localStorage.getItem(storageKey);
 
-    if (data && false) {
+    if (data) {
       data = JSON.parse(data);
       processResponses(data);
     } else {
