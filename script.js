@@ -336,7 +336,7 @@ function main() {
     displayScores(firstname, lastname, scores);
   }
 
-  localStorage.removeItem("csvData");
+  //localStorage.removeItem("csvData");
   const storageKey = "csvData";
   let data = localStorage.getItem(storageKey);
   if (data && !resetAll) {
